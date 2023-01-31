@@ -2,7 +2,7 @@ import * as React from 'react';
 import { View, Image, TextInput, Picker, KeyboardAvoidingView, DatePickerIOSBase } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { SafeAreaView } from "react-native-safe-area-context";
-import datepicker from "js-datepicker";
+import DatePicker from "react-datepicker";
 
 // Import helper code
 import Settings from '../constants/Settings';
@@ -14,8 +14,7 @@ import { TextParagraph, TextH1, TextH2, TextH3, TextListItem, TextLabel } from "
 import Styles from "../styles/MainStyle";
 import Colours from '../constants/Colours';
 import { MyButton } from '../components/MyButton';
-import { DatePickerAndroid } from 'react-native-web';
-import { Calendar } from 'expo';
+import "react-datepicker/dist/react-datepicker.css";
 
 
 
@@ -87,7 +86,7 @@ export default function AddActivityScreen(props) {
                 </View>
                 <View style={Styles.formRow}>
                   <TextLabel>Date:</TextLabel>
-                  <TextInput type="date" value={date} onChangeText={setDate} style={Styles.textInput}/>
+                  <DatePicker selected={date} onChange={setDate} portalId="root" />
                 </View>
                 <View style={Styles.formRow}>
                   <TextLabel>Duration:</TextLabel>
