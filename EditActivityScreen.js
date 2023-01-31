@@ -5,7 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 // Import helper code
 import Settings from '../constants/Settings';
-import { ETGetActivity, ETGetTypes, ETUpdateActvity } from '../utils/WebService';
+import { ETGetActivity, ETGetTypes, ETUpdateActivity } from '../utils/WebService';
 import { PopupOk, PopupOkCancel } from '../utils/Popup';
 
 // Import styling and components
@@ -51,7 +51,7 @@ export default function EditActivityScreen(props) {
     .then(a => {
       if (a) {
         setActivityId(a.ActivityId);
-        setTypeId(a.Type ? a.Type.Id : 0);
+        setTypeId(a.ActivityType ? a.ActivityType.Id : 0);
         setDate(a.ActivityDate);
         setDuration(a.Duration);
         setDistance(a.Distance);
@@ -107,6 +107,7 @@ export default function EditActivityScreen(props) {
                 <View style={Styles.formRow}>
                   <TextLabel>Date:</TextLabel>
                   <TextInput value={date} onChangeText={setDate} style={Styles.textInput}/>
+                  {/*<DatePicker selected={date} onChange={setDate} portalId="root" /> */}
                 </View>
                 <View style={Styles.formRow}>
                   <TextLabel>Duration:</TextLabel>
